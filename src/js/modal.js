@@ -1,17 +1,20 @@
 const borderModal = document.querySelector('.backdrop');
-const btnShowShipment = document.querySelector('.shipments');
-console.dir(btnShowShipment);
-console.dir(borderModal);
+const btnShowShipment = document.querySelectorAll('.details');
+const shipmentTable = document.querySelector('.shipments-table');
 
-// window.addEventListener('click', evt => {
-//   console.log(evt.target);
-// });
-
-btnShowShipment.addEventListener('click', evt => {
-  console.log(evt.target);
+btnShowShipment.forEach(function (item) {
+  item.addEventListener('click', openModal);
 });
 
-// function openModal(evt) {
-//   console.log(evt.currentTarget);
-//   borderModal.classList.remove('is-hidden');
-// }
+borderModal.addEventListener('click', evt => {
+  if (evt.target === borderModal) {
+    closeModal();
+  }
+});
+
+function openModal() {
+  borderModal.classList.remove('is-hidden');
+}
+function closeModal() {
+  borderModal.classList.add('is-hidden');
+}

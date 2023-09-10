@@ -3,6 +3,9 @@
   box-sizing: border-box;
 } */
 
+ul {
+  list-style: none;
+}
 body {
   font-family: sans-serif;
   font-size: 14px;
@@ -75,4 +78,21 @@ button {
   padding-bottom: 24px;
   padding-left: 24px;
   padding-right: 24px;
+}
+.input-style {
+  display: flex;
+  flex-direction: column;
+}
+.form-input {
+  margin-top: 10px;
+  width: 600px;
+  height: 40px;
+}
+.input-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.modal-form-text {
+  margin-bottom: 40px;
 }
