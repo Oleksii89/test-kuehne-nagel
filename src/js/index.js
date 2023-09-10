@@ -39,7 +39,7 @@ function createMarkup() {
     <td>${trackingNo}</td>
     <td>${status}</td>
     <td>${consignee}</td>
-    <td><button class="details" type="button"></button></td>
+    <td><button class="details js-target" type="button" data-shipment-id="${orderNo}"></button></td>
     <td><button class="delete" type="button"></button></td></tr>
     </tbody>`;
       table.insertAdjacentHTML('beforeend', shipmentItem);
