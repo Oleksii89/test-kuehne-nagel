@@ -1,5 +1,4 @@
-import Notiflix from 'notiflix';
-
+import 'basiclightbox/src/styles/main.scss';
 import { fetchShipments } from './shipments-api';
 import { support } from './support';
 
@@ -15,15 +14,18 @@ const table = document.querySelector('.shipments-table');
 //     console.log(error);
 //   });
 
-// function createMarkup() {
-//   return support
+// function createMarkup(arr) {
+//   return arr
 //     .map(({ consignee, customer, date, orderNo, status, trackingNo }) => {
 //       return `<tbody><tr><td>${orderNo}</td>
 //     <td>${date}</td>
 //     <td>${customer}</td>
 //     <td>${trackingNo}</td>
 //     <td>${status}</td>
-//     <td>${consignee}</td></tr></tbody>`;
+//     <td>${consignee}</td>
+//     <td><button class="details js-target" type="button" data-shipment-id="${orderNo}"></button></td>
+//     <td><button class="delete" type="button"></button></td></tr>
+//     </tbody>`;
 //     })
 //     .join('');
 // }

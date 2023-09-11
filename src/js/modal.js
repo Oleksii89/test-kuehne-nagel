@@ -1,17 +1,8 @@
 import { support } from './support';
-const borderModal = document.querySelector('.backdrop');
-// const btnShowShipment = document.querySelector('.details');
+import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/src/styles/main.scss';
+
 const shipmentTable = document.querySelector('.shipments-table');
-
-// btnShowShipment.forEach(function (item) {
-//   item.addEventListener('click', openModal);
-// });
-
-borderModal.addEventListener('click', evt => {
-  if (evt.target === borderModal) {
-    closeModal();
-  }
-});
 
 shipmentTable.addEventListener('click', openModal);
 
@@ -21,26 +12,21 @@ function openModal(evt) {
   }
 
   const shipmentId = evt.target.dataset.shipmentId;
-  console.log(shipmentId);
-  const currentShipment = support.find(({ orderNo }) => orderNo === shipmentId);
-  console.log(currentShipment);
-  borderModal.classList.remove('is-hidden');
+  const currentShipment = findShipment(shipmentId);
 
-  return `<div class="modal">
-        <p class="modal-form-text">SHIPMENT DETAILS</p>
-        <form class="modal-form"></form>
-        <ul class="input-list">
-          <li class="input-style"><span>orderNo</span><input class="form-input" type="text" placeholder=""></li>
-          <li class="input-style"><span>date</span><input class="form-input" type="text" placeholder=""></li>
-          <li class="input-style"><span>customer</span><input class="form-input" type="text" placeholder=""></li>
-          <li class="input-style"><span>trackingNo</span><input class="form-input" type="text" placeholder=""></li>
-          <li class="input-style"><span>consignee</span><input class="form-input" type="text" placeholder=""></li>
-          <li class="input-style"><span>status</span><input class="form-input" type="text" placeholder=""></li>
-        </ul>
-        </form>
-      </div>`;
+  const instance = basicLightbox.create(`
+   <ul class="input-list">
+             <li class="input-style"><span class="modal-form-text">orderNo</span><input class="form-input" type="text" placeholder="${currentShipment.orderNo}"></li>
+             <li class="input-style"><span class="modal-form-text">date</span><input class="form-input" type="text" placeholder="${currentShipment.date}"></li>
+             <li class="input-style"><span class="modal-form-text">customer</span><input class="form-input" type="text" placeholder="${currentShipment.customer}"></li>
+             <li class="input-style"><span class="modal-form-text">trackingNo</span><input class="form-input" type="text" placeholder="${currentShipment.trackingNo}"></li>
+             <li class="input-style"><span class="modal-form-text">consignee</span><input class="form-input" type="text" placeholder="${currentShipment.consignee}"></li>
+             <li class="input-style"><span class="modal-form-text">status</span><input class="form-input" type="text" placeholder="${currentShipment.status}"></li>
+             </ul>
+  `);
+  instance.show();
 }
 
-function closeModal() {
-  borderModal.classList.add('is-hidden');
+function findShipment(shipmentId) {
+  return support.find(({ orderNo }) => orderNo === shipmentId);
 }

@@ -45,7 +45,7 @@ button {
   background: red;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
-.backdrop {
+/* .backdrop {
   position: fixed;
   z-index: 100;
   top: 0;
@@ -78,14 +78,14 @@ button {
   padding-bottom: 24px;
   padding-left: 24px;
   padding-right: 24px;
-}
+} */
 .input-style {
   display: flex;
   flex-direction: column;
 }
 .form-input {
   margin-top: 10px;
-  width: 600px;
+  width: 900px;
   height: 40px;
 }
 .input-list {
@@ -94,5 +94,10 @@ button {
   gap: 20px;
 }
 .modal-form-text {
-  margin-bottom: 40px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+}
+.shipments-table {
+  margin: 0 auto;
 }

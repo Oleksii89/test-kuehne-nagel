@@ -5,7 +5,7 @@ const BASE_URL = 'https://my.api.mockaroo.com/shipments.json';
 
 async function fetchShipments() {
   const response = await axios.get(`${BASE_URL}?key=${API_KEY}`);
-  console.log(response.data);
+  // console.log(response.data);
   return response.data;
 }
 
